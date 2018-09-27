@@ -7,6 +7,25 @@
     <groupId>org.ymj</groupId>
     <artifactId>break</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <properties>
+        <baidu.version>4.4.0</baidu.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.11.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baidu.aip</groupId>
+            <artifactId>java-sdk</artifactId>
+            <version>${baidu.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
+    </dependencies>
 
 </project>
