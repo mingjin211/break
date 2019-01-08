@@ -1,11 +1,11 @@
 package collections;
 
 
+import reflect.ReflectPractice;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
 
 public class Main {
 
@@ -50,6 +50,17 @@ public class Main {
 ////
 ////        System.out.println(queue.poll());
 ////        System.out.println(queue.poll());
+
+        HashMap<String,List<String>> map = new HashMap<String,List<String>>();
+        map.put("a",new ArrayList<String>());
+        map.put("c",new ArrayList<String>());
+
+        map.keySet().contains("");
+
+
+
+        String co = "";
+        ReflectPractice.verifyArg(co);
         Queue queue = new Queue();
         isPalindrome("A man, a plan, a canal: Panama");
 

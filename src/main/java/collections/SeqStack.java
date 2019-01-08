@@ -98,16 +98,16 @@ public class SeqStack<T> implements Serializable {
     }
 
     public static void main(String[] args){
-        SeqStack<String> s=new SeqStack<>();
-        s.push("A");
-        s.push("B");
-        s.push("C");
-        System.out.println("size->"+s.size());
-        int l=s.size();//size 在减少,必须先记录
-        for (int i=0;i<l;i++){
-            System.out.println("s.pop->"+s.pop());
-        }
-
-        System.out.println("s.peek->"+s.peek());
+//        SeqStack<String> s=new SeqStack<>();
+//        s.push("A");
+//        s.push("B");
+//        s.push("C");
+//        System.out.println("size->"+s.size());
+//        int l=s.size();//size 在减少,必须先记录
+//        for (int i=0;i<l;i++){
+//            System.out.println("s.pop->"+s.pop());
+//        }
+//
+//        System.out.println("s.peek->"+s.peek());
     }
 }
