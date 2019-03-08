@@ -59,8 +59,8 @@ public class Main {
 
 
 
-        String co = "";
-        ReflectPractice.verifyArg(co);
+//        String co = "";
+//        ReflectPractice.verifyArg(co);
         Queue queue = new Queue();
         isPalindrome("A man, a plan, a canal: Panama");
 
@@ -79,9 +79,16 @@ public class Main {
         calendar.setTime(d);
         calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) + 8);
         //calendar.getTime() 返回的是Date类型，也可以使用calendar.getTimeInMillis()获取时间戳
+
+        int x = 1;
+        int y;
+        char c;
+
         System.out.println("北京时间: " + calendar.getTime());
 
         Date de = calendar.getTime();
+
+
 
 
 //        // 此处是将date类型装换为字符串类型，比如：Sat Nov 18 15:12:06 CST 2017转换为2017-11-18 15:12:06

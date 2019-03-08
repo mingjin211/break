@@ -6,7 +6,7 @@ class MyCallable implements Callable<Integer> {
     private int i = 0;
 
     // 与run()方法不同的是，call()方法具有返回值
-    
+
     public Integer call() {
         int sum = 0;
         for (; i < 100; i++) {
