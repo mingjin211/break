@@ -39,13 +39,13 @@ public class RSAUtils {
 
     // encrypt the message
     past = System.currentTimeMillis();
-    byte[] encrypted = encrypt(privateKey, "This is a secret message");
+    byte[] encrypted = encrypt(publicKey, "MyPassword");
     System.out.println(base64Encode(encrypted));  // <<encrypted message>>
     System.out.println("encrypt cost time:" + (System.currentTimeMillis() - past));
 
     // decrypt the message
     past = System.currentTimeMillis();
-    byte[] secret = decrypt(publicKey, encrypted);
+    byte[] secret = decrypt(privateKey, encrypted);
     System.out.println(new String(secret, UTF8));     // This is a secret message
 
     System.out.println("decrypt cost time:" + (System.currentTimeMillis() - past));
@@ -68,6 +68,20 @@ public class RSAUtils {
   public static byte[] decrypt(PublicKey publicKey, byte[] encrypted) throws Exception {
     Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
     cipher.init(Cipher.DECRYPT_MODE, publicKey);
+
+    return cipher.doFinal(encrypted);
+  }
+
+  public static byte[] encrypt(PublicKey publicKey, String message) throws Exception {
+    Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
+    cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+
+    return cipher.doFinal(message.getBytes(UTF8));
+  }
+
+  public static byte[] decrypt(PrivateKey privateKey, byte[] encrypted) throws Exception {
+    Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
+    cipher.init(Cipher.DECRYPT_MODE, privateKey);
 
     return cipher.doFinal(encrypted);
   }
