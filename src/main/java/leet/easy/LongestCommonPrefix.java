@@ -5,7 +5,8 @@ package leet.easy;
  * No 14
  * Code longest-common-prefix
  * Url https://leetcode-cn.com/problems/longest-common-prefix/
- * Status !
+ * Status pass
+ * Answer https://leetcode-cn.com/articles/longest-common-prefix/
  *
  * 编写一个函数来查找字符串数组中的最长公共前缀。
  *
