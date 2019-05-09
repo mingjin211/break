@@ -47,7 +47,7 @@ package leet.easy;
  * }
  *
  */
-public class RemoveElement {
+public class No27RemoveElement {
 
   public static int removeElement(int[] nums, int val) {
     int record = 0;

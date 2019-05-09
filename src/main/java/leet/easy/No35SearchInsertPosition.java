@@ -28,7 +28,7 @@ package leet.easy;
  * 输入: [1,3,5,6], 0
  * 输出: 0
  */
-public class SearchInsertPosition {
+public class No35SearchInsertPosition {
 
   public static int searchInsert(int[] nums, int val) {
     int i = 0;

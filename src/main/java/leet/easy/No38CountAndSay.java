@@ -33,7 +33,7 @@ package leet.easy;
  * 输入: 4
  * 输出: "1211"
  */
-public class CountAndSay {
+public class No38CountAndSay {
 
   public static String countAndSay(int n) {
     String ex = "1";

@@ -40,7 +40,7 @@ import java.util.Stack;
  * 所有输入只包含小写字母 a-z 。
  *
  */
-public class ValidParentheses {
+public class No20ValidParentheses {
 
   public static boolean isValid(String s) {
     if(s.isEmpty())return true;

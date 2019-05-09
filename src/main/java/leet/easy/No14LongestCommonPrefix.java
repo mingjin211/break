@@ -26,7 +26,7 @@ package leet.easy;
  * 所有输入只包含小写字母 a-z 。
  *
  */
-public class LongestCommonPrefix {
+public class No14LongestCommonPrefix {
 
   public static String longestCommonPrefix(String[] strs) {
     if(strs.length == 0){

@@ -19,7 +19,7 @@ package leet.easy;
  *
  * 如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
  */
-public class MaximumSubarray {
+public class No53MaximumSubarray {
 
   public static int maxSubArray(int[] nums) {
     return 0;
