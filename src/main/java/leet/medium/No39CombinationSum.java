@@ -1,13 +1,14 @@
 package leet.medium;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * No 39
  * Code combination-sum
  * Url https://leetcode-cn.com/problems/combination-sum/
- * Status working
+ * Status pass but need thinking
  * Answer https://leetcode-cn.com/articles/combination-sum/
  * Comments search combination
  *
@@ -37,41 +38,36 @@ import java.util.List;
  *   [3,5]
  * ]
  *
- * 执行用时 :2 ms, 在所有Java提交中击败了76.03%的用户
- * 内存消耗 :35.2 MB, 在所有Java提交中击败了87.02%的用户
  */
 public class No39CombinationSum {
 
-  public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+  private static List<List<Integer>> combinationSum(int[] candidates, int target) {
     List<List<Integer>> result = new ArrayList<>();
-    List<Integer> digui = new ArrayList<>();
-    diguiSum(candidates,target,digui,result);
+    Arrays.sort(candidates);
+    ArrayList<Integer> path = new ArrayList<>();
+    diguiSum(candidates,target,0,path,result);
     return result;
   }
 
-  public static void diguiSum(int[] candidates, int target, List<Integer> list,List<List<Integer>> result){
-    List<Integer> diguiList = new ArrayList<>();
-    diguiList.addAll(list);
-    for(int i = 0 ; i < candidates.length ;){
-      int x = candidates[i];
-      i++;
-      diguiList.add(x);
-      if(target == x){
-        result.add(diguiList);
-        return;
-      }else if(target < x){
-        list = new ArrayList<>();
-        return;
-      }else {
-        diguiSum(candidates,target - x,diguiList,result);
-      }
+  private static void diguiSum(int[] candidates, int target, int index ,ArrayList<Integer> path,List<List<Integer>> result){
+    if(target < 0){
+      return;
     }
-
+    if(target == 0){
+      result.add(new ArrayList<>(path));
+      return;
+    }
+    for(int i = index ; i < candidates.length ; ++i){
+      if(target < candidates[index]) break; //优化点
+      path.add(candidates[i]);
+      diguiSum(candidates,target - candidates[i],i,path,result);
+      path.remove(path.size() -1);
+    }
   }
 
   public static void main(String args[]){
-    int[] num = {2,3,6,7};
-    System.out.println(combinationSum(num,7));
+    int[] num = {2,3,5};
+    System.out.println(combinationSum(num,8));
   }
 
 }
