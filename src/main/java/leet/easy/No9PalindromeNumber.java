@@ -27,7 +27,7 @@ package leet.easy;
  * 你能不将整数转为字符串来解决这个问题吗？
  *
  */
-public class PalindromeNumber {
+public class No9PalindromeNumber {
 
   public static boolean isPalindrome(int x) {
     if(x < 0)return false;

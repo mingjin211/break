@@ -80,7 +80,7 @@ package leet.easy;
  * 		return roman_int; 	}
  *
  */
-public class RomanToInteger {
+public class No13RomanToInteger {
 
   public static int romanToInt(String s) {
     int res = 0;
