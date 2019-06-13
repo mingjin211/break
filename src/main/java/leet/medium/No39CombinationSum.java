@@ -12,6 +12,7 @@ import java.util.List;
  * Answer https://leetcode-cn.com/articles/combination-sum/
  * Comments search combination
  *
+ * 思考DP的解法
  * 给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
  *
  * candidates 中的数字可以无限制重复被选取。
@@ -58,7 +59,7 @@ public class No39CombinationSum {
       return;
     }
     for(int i = index ; i < candidates.length ; ++i){
-      if(target < candidates[index]) break; //优化点
+      if(i > index && candidates[i] == candidates[i-1])continue; //如果candidates是可重复元素数组 这里是去重方式
       path.add(candidates[i]);
       diguiSum(candidates,target - candidates[i],i,path,result);
       path.remove(path.size() -1);
@@ -66,7 +67,7 @@ public class No39CombinationSum {
   }
 
   public static void main(String args[]){
-    int[] num = {2,3,5};
+    int[] num = {10,1,2,7,6,5};
     System.out.println(combinationSum(num,8));
   }
 
