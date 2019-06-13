@@ -45,15 +45,16 @@ import java.util.List;
  */
 public class No40CombinationSumII {
 
-  private static List<List<Integer>> combinationSum(int[] candidates, int target) {
+  private static List<List<Integer>> combinationSumII(int[] candidates, int target) {
     List<List<Integer>> result = new ArrayList<>();
     Arrays.sort(candidates);
     ArrayList<Integer> path = new ArrayList<>();
-    diguiSum(candidates,target,0,path,result);
+    recursionSum(candidates,target,0,path,result);
     return result;
   }
 
-  private static void diguiSum(int[] candidates, int target, int index ,ArrayList<Integer> path,List<List<Integer>> result){
+  private static void recursionSum(int[] candidates, int target, int index ,ArrayList<Integer> path,List<List<Integer>> result){
+    System.out.println("index:" + index + " temp:" + new ArrayList<>(path));
     if(target < 0){
       return;
     }
@@ -64,16 +65,17 @@ public class No40CombinationSumII {
       return;
     }
     for(int i = index ; i < candidates.length ; ++i){
+      if(candidates[i] > target)break;
       if(i > index && candidates[i] == candidates[i-1])continue; //去重方式2 回溯查找的时候判断
       path.add(candidates[i]);
-      diguiSum(candidates,target - candidates[i],i + 1,path,result);
+      recursionSum(candidates,target - candidates[i],i + 1,path,result);
       path.remove(path.size() -1);
     }
   }
 
   public static void main(String args[]){
     int[] num = {10,1,2,7,6,1,5};
-    System.out.println(combinationSum(num,8));
+    System.out.println(combinationSumII(num,8));
   }
 
 

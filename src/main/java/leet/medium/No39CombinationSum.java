@@ -46,11 +46,12 @@ public class No39CombinationSum {
     List<List<Integer>> result = new ArrayList<>();
     Arrays.sort(candidates);
     ArrayList<Integer> path = new ArrayList<>();
-    diguiSum(candidates,target,0,path,result);
+    recursionSum(candidates,target,0,path,result);
     return result;
   }
 
-  private static void diguiSum(int[] candidates, int target, int index ,ArrayList<Integer> path,List<List<Integer>> result){
+  private static void recursionSum(int[] candidates, int target, int index ,ArrayList<Integer> path,List<List<Integer>> result){
+    System.out.println("index:" + index + " temp:" + new ArrayList<>(path));
     if(target < 0){
       return;
     }
@@ -61,13 +62,13 @@ public class No39CombinationSum {
     for(int i = index ; i < candidates.length ; ++i){
       if(i > index && candidates[i] == candidates[i-1])continue; //如果candidates是可重复元素数组 这里是去重方式
       path.add(candidates[i]);
-      diguiSum(candidates,target - candidates[i],i,path,result);
+      recursionSum(candidates,target - candidates[i],i,path,result);
       path.remove(path.size() -1);
     }
   }
 
   public static void main(String args[]){
-    int[] num = {10,1,2,7,6,5};
+    int[] num = {2,3,5};
     System.out.println(combinationSum(num,8));
   }
 
