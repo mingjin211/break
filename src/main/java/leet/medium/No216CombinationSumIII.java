@@ -1,5 +1,8 @@
 package leet.medium;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * No 40
  * Code combination-sum III
@@ -25,4 +28,28 @@ package leet.medium;
  *
  */
 public class No216CombinationSumIII {
+
+  private static List<List<Integer>> combinationSum3(int k, int n) {
+    List<List<Integer>> result = new ArrayList<>();
+    recursion(k,n,1,0,new ArrayList<>(),result);
+    return result;
+  }
+
+  private static void recursion(int k,int n,int index,int target,List<Integer> tmp,List<List<Integer>> result){
+    System.out.println("index:" + index + " temp:" + new ArrayList<>(tmp));
+    if(target == n && tmp.size() == k){
+      result.add(new ArrayList<>(tmp));
+      return;
+    }
+    for(int i = index ; i <= 9 ; i++){
+      if(n - target < i)break;
+        tmp.add(i);
+        recursion(k,n,i + 1,target + i,tmp,result);
+        tmp.remove(tmp.size() - 1);
+    }
+  }
+
+  public static void main(String args[]){
+    System.out.println(combinationSum3(3,8));
+  }
 }
