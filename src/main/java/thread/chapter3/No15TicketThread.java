@@ -24,7 +24,7 @@ package thread.chapter3;
 
 class TicketThread15 implements Runnable{
 
-  private int ticket = 100;
+  private int ticket = 10;
   private synchronized boolean sale(){
     if(this.ticket > 0){
       try {
