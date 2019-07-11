@@ -85,11 +85,55 @@ public class LinkedListYu {
     }
 
     /**
-     *
+     * 删除倒数第K个结点
      */
-    // 删除倒数第K个结点
     public static SNode deleteLastKth(SNode list, int k){
-        return  list;
+
+        SNode fast = list;
+        SNode slow = list;
+
+        int i = 1;
+        while(fast != null && i < k){
+            fast = fast.getNext();
+            i++;
+        }
+
+        if(fast == null){
+            return list;
+        }
+
+        SNode pre = null;
+        while(fast.getNext() != null){
+            fast = fast.getNext();
+            pre = slow;
+            slow = slow.getNext();
+        }
+
+        if(pre == null){
+            list = list.getNext();
+        }else{
+            pre.setNext(pre.getNext().getNext());
+        }
+        return list;
+    }
+
+    /**
+     * 求中间结点
+     * @param list
+     * @return
+     */
+    public static SNode findMiddleNode(SNode list) {
+        SNode fast = list;
+        SNode slow = list;
+
+        if(list == null) return null;
+
+        while(fast.getNext() != null && fast.getNext().getNext() != null){
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
+        }
+
+        return slow;
     }
 
 }

@@ -21,19 +21,13 @@ class Producer implements Runnable{
     public void run() {
         for(int i = 0 ; i < 100 ; i++){
             if(i % 2 == 0){
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                }
-                this.msg.setTitle("Yu");
-                this.msg.setContent("big handsome bro");
+//                this.msg.setTitle("Yu");
+                this.msg.set("Yu","big handsome bro");
+//                this.msg.setContent("big handsome bro");
             }else{
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                }
-                this.msg.setTitle("Xu");
-                this.msg.setContent("small dd ");
+//                this.msg.setTitle("Xu");
+//                this.msg.setContent("small dd ");
+                this.msg.set("Xu","small dd ");
             }
         }
     }
@@ -53,7 +47,8 @@ class Consumer implements Runnable{
                 Thread.sleep(10);
             } catch (InterruptedException e) {
             }
-            System.out.println(msg.getTitle() + " - " + msg.getContent());
+//            System.out.println(msg.getTitle() + " - " + msg.getContent());
+            System.out.println(msg.get());
         }
     }
 }
@@ -61,6 +56,19 @@ class Consumer implements Runnable{
 class Message{
     private String title;
     private String content;
+
+    public synchronized String get(){
+        return this.title + " - " + this.content;
+    }
+
+    public synchronized void set(String title,String content){
+        this.title = title;
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+        }
+        this.content = content;
+    }
 
     public String getTitle() {
         return title;
