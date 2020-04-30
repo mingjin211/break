@@ -3,16 +3,16 @@ package geektime.structure.chapter12Sort2;
 public class QuickSortYu {
 
   private static void quick_sort(int[] nums,int p,int r){
-      System.out.print(p + "->" + r + " ");
+//      System.out.print(p + "->" + r + " ");
       if(p >= r){
-        System.out.println();
+//        System.out.println();
         return;
       }
       int q = partition(nums,p,r);
-      for(int k = 0 ; k < nums.length ; k++){
-        System.out.print(nums[k] + ",");
-      }
-      System.out.println();
+//      for(int k = 0 ; k < nums.length ; k++){
+//        System.out.print(nums[k] + ",");
+//      }
+//      System.out.println();
       quick_sort(nums,p,q-1);
       quick_sort(nums,q+1,r);
   }
