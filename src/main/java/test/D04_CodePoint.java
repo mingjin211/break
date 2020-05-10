@@ -1,5 +1,8 @@
 package test;
 
+import java.io.Console;
+import java.nio.file.Paths;
+
 public class D04_CodePoint {
     public static void main(String[] args){
         /*
@@ -22,6 +25,8 @@ public class D04_CodePoint {
             String str2 = new String(codePoints, 0, codePoints.length);
             System.out.println(str2);
         }
+        Console con = System.console();
+        con.readPassword("Password:");
 
     }
 }
